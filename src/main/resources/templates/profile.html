@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Profile Page</title>
+  <!-- Include CSS and other head elements -->
+</head>
+<body>
+<div>
+  <h1>Profile Details</h1>
+  <p>Name: <span th:text="${profile.user.firstName} + ' ' + ${profile.user.lastName}"></span></p>
+  <p>Email: <span th:text="${profile.user.email}"></span></p>
+  <p>Daily Calorie Goal: <span th:text="${profile.dailyCalorieGoal}"></span></p>
+  <p>Daily Protein Goal: <span th:text="${profile.dailyProteinGoal}"></span></p>
+  <!-- More profile fields can be added here -->
+</div>
+</body>
+</html>

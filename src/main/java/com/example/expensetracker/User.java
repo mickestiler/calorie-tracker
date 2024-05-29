@@ -22,6 +22,9 @@ public class User {
     @Column(name = "last_name", nullable = false, length = 20)
     private String lastName;
 
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
+    private Profile profile;
+
     public Long getId() {
         return id;
     }
@@ -60,6 +63,14 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(String Profile) {
+        this.profile = profile;
     }
 
     // getters and setters are not shown
