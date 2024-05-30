@@ -1,4 +1,4 @@
-package com.example.expensetracker;
+/** package com.example.expensetracker;
 
 import jakarta.persistence.*;
 
@@ -39,3 +39,4 @@ public class Employee {
         this.age = age;
     }
 }
+**/

@@ -1,4 +1,4 @@
-package com.example.expensetracker;
+package com.example.calorietracker;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

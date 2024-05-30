@@ -1,4 +1,4 @@
-package com.example.expensetracker;
+package com.example.calorietracker;
 
 import jakarta.persistence.*;
 

@@ -1,4 +1,4 @@
-package com.example.expensetracker;
+package com.example.calorietracker;
 
 import jakarta.persistence.*;
 
@@ -21,9 +21,6 @@ public class Profile {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
-    public Profile() {
-
-    }
 
     public Long getId() {
         return id;

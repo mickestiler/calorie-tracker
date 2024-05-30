@@ -1,4 +1,4 @@
-package com.example.expensetracker;
+package com.example.calorietracker;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -37,12 +37,12 @@ public class WebSecurityConfig {
         http.authenticationProvider(authenticationProvider());
 
         http.authorizeHttpRequests(auth ->
-                        auth.requestMatchers("/users").authenticated()
+                        auth.requestMatchers("/users", "/profile").authenticated()
                                 .anyRequest().permitAll()
                 )
                 .formLogin(login ->
                         login.usernameParameter("email")
-                                .defaultSuccessUrl("/users")
+                                .defaultSuccessUrl("/profile")  // Redirect to the profile page after login
                                 .permitAll()
                 )
                 .logout(logout -> logout.logoutSuccessUrl("/").permitAll()

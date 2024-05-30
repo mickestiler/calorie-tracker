@@ -1,6 +1,9 @@
-package com.example.expensetracker;
+package com.example.calorietracker;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "users")
@@ -10,20 +13,32 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Email cannot be empty")
+    @Email(message = "Invalid email format")
     @Column(nullable = false, unique = true, length = 45)
     private String email;
 
+    @NotBlank(message = "Password cannot be empty")
+    @Size(min = 6, max = 64, message = "Password must be between 6 and 64 characters")
     @Column(nullable = false, length = 64)
     private String password;
 
+    @NotBlank(message = "First name cannot be empty")
+    @Size(min = 1, max = 20, message = "First name must be between 1 and 20 characters")
     @Column(name = "first_name", nullable = false, length = 20)
     private String firstName;
 
+    @NotBlank(message = "Last name cannot be empty")
+    @Size(min = 1, max = 20, message = "Last name must be between 1 and 20 characters")
     @Column(name = "last_name", nullable = false, length = 20)
     private String lastName;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
     private Profile profile;
+
+    private int calories;
+
+    private int caloric_goal;
 
     public Long getId() {
         return id;
@@ -69,9 +84,25 @@ public class User {
         return profile;
     }
 
-    public void setProfile(String Profile) {
+    public void setProfile(Profile Profile) {
         this.profile = profile;
     }
 
-    // getters and setters are not shown
+    public int getCalories() {
+        return calories;
+    }
+
+    public void setCalories(int calories) {
+        this.calories = calories;
+    }
+
+    public int getCaloric_goal() {
+        return caloric_goal;
+    }
+
+    public void setCaloric_goal(int caloric_goal) {
+        this.caloric_goal = caloric_goal;
+    }
+
+    // getters and setters are not show
 }

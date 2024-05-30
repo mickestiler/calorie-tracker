@@ -1,4 +1,4 @@
-package com.example.expensetracker;
+package com.example.calorietracker;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

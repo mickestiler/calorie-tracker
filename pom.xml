@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>expense-tracker</artifactId>
+    <artifactId>calorie-tracker</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>expense-tracker</name>
     <description>expense-tracker</description>
@@ -67,6 +67,10 @@
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>webjars-locator-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
     </dependencies>
 

@@ -1,4 +1,4 @@
-package com.example.expensetracker;
+/** package com.example.expensetracker;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,12 +15,6 @@ import java.util.Optional;
 public class EmployeeController {
     @Autowired
     private EmployeeRepository employeeRepository;
-
-    @GetMapping("")
-
-    public List<Employee> getAllEmployees() {
-        return employeeRepository.findAll();
-    }
 
     @GetMapping("/{id}")
 
@@ -94,3 +88,4 @@ public class EmployeeController {
     }
 
 }
+**/
