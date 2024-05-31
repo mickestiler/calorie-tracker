@@ -14,4 +14,40 @@ public class Meal {
 
     @Embedded
     private Macronutrient calories;
+
+    @ManyToOne(fetch = FetchType.LAZY)  // Many meals can belong to one profile
+    @JoinColumn(name = "profile_id")  // This is the column in the meal table that connects to the profile
+    private Profile profile;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Macronutrient getCalories() {
+        return calories;
+    }
+
+    public void setCalories(Macronutrient calories) {
+        this.calories = calories;
+    }
+
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
+    }
 }

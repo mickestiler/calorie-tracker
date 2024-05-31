@@ -2,16 +2,25 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Profile Page</title>
-  <!-- Include CSS and other head elements -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <!-- Include other CSS and head elements -->
 </head>
 <body>
-<div>
+<div class="container">
   <h1>Profile Details</h1>
   <p>Name: <span th:text="${profile.user.firstName} + ' ' + ${profile.user.lastName}"></span></p>
   <p>Email: <span th:text="${profile.user.email}"></span></p>
   <p>Daily Calorie Goal: <span th:text="${profile.dailyCalorieGoal}"></span></p>
   <p>Daily Protein Goal: <span th:text="${profile.dailyProteinGoal}"></span></p>
+  <p>Daily Fat Goal: <span th:text="${profile.dailyFatGoal}"></span></p>
+  <p>Daily Carbohydrate Goal: <span th:text="${profile.dailyCarbohydrateGoal}"></span></p>
+  <!-- Button to navigate to Add Meal page -->
+  <a href="@{/meals/add}" class="btn btn-primary">Add Meal</a>
   <!-- More profile fields can be added here -->
 </div>
+<!-- Include JavaScript files for Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>

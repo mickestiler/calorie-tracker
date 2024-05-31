@@ -36,10 +36,6 @@ public class User {
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
     private Profile profile;
 
-    private int calories;
-
-    private int caloric_goal;
-
     public Long getId() {
         return id;
     }
@@ -84,25 +80,10 @@ public class User {
         return profile;
     }
 
-    public void setProfile(Profile Profile) {
+    public void setProfile(Profile profile) {
         this.profile = profile;
     }
 
-    public int getCalories() {
-        return calories;
-    }
-
-    public void setCalories(int calories) {
-        this.calories = calories;
-    }
-
-    public int getCaloric_goal() {
-        return caloric_goal;
-    }
-
-    public void setCaloric_goal(int caloric_goal) {
-        this.caloric_goal = caloric_goal;
-    }
 
     // getters and setters are not show
 }

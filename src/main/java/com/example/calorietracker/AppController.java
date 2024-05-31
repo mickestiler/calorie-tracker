@@ -1,5 +1,6 @@
 package com.example.calorietracker;
 
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -41,14 +42,15 @@ public class AppController {
      * @param user
      * @return register_success.html
      */
+    @Transactional
     @PostMapping("/process_register")
     public String processRegister(User user) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         Profile profile = new Profile();
+        user.setProfile(profile);
         profile.setUser(user); // Set the user for the profile
         profile.setDailyCalorieGoal(DEFAULT_DAILY_CALORIE_GOAL);
-        user.setProfile(profile);
         user.setPassword(encodedPassword);
 
         userRepo.save(user);

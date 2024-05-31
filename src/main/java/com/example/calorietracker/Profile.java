@@ -2,6 +2,8 @@ package com.example.calorietracker;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name="profiles")
 public class Profile {
@@ -9,18 +11,27 @@ public class Profile {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
     private int dailyCalorieGoal;
+
+    private int caloriesToday;
 
     private int dailyProteinGoal;
     private int dailyFatGoal;
     private int dailyCarbohydrateGoal;
 
+    @OneToMany(mappedBy = "profile", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Meal> meals;  // List to hold multiple meals
+
+    private double weight;
+
+    private double goalWeight;
+
+    private int height;
+
     // Associations
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
-
 
     public Long getId() {
         return id;
@@ -68,5 +79,45 @@ public class Profile {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public int getCaloriesToday() {
+        return caloriesToday;
+    }
+
+    public void setCaloriesToday(int caloriesToday) {
+        this.caloriesToday = caloriesToday;
+    }
+
+    public List<Meal> getMeals() {
+        return meals;
+    }
+
+    public void setMeals(List<Meal> meals) {
+        this.meals = meals;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public double getGoalWeight() {
+        return goalWeight;
+    }
+
+    public void setGoalWeight(double goalWeight) {
+        this.goalWeight = goalWeight;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
     }
 }
