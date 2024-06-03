@@ -12,8 +12,6 @@ I'll make a video on this I promise.
 
 ## Technologies
 
-## Technologies
-
 - **Spring Boot**: Framework used for the backend
 - **Thymeleaf**: Server-side Java template engine for web applications
 - **Spring Data JPA**: To interact with the database using Java Persistence API
