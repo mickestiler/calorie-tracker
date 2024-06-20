@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Add Meal</title>
-  <!-- Include CSS and JavaScript if necessary -->
+  <title>Meal Management</title>
+  <!-- Include CSS and JavaScript -->
 </head>
 <body>
 <div class="container">
-  <h1>Add Meal</h1>
-  <form th:action="@{/meals/add}" th:object="${meal}" method="post">
+  <h1>Meal Management</h1>
+  <h2>Create New Meal</h2>
+  <form th:action="@{/meals/create}" th:object="${meal}" method="post">
     <div>
       <label for="name">Meal Name:</label>
       <input type="text" id="name" th:field="*{name}" required />
@@ -25,7 +26,27 @@
       <input type="number" id="carbohydrates" th:field="*{calories.carbohydrates}" required />
     </div>
     <div>
-      <button type="submit" class="btn btn-primary">Add Meal</button>
+      <button type="submit" class="btn btn-primary">Create Meal</button>
+    </div>
+  </form>
+  <h2>Add Meal to Diet</h2>
+  <form th:action="@{/meals/add-to-diet}" method="post">
+    <div>
+      <label for="mealId">Select Meal:</label>
+      <select id="mealId" name="mealId">
+        <option th:each="meal : ${meals}" th:value="${meal.id}" th:text="${meal.name}">Meal Name</option>
+      </select>
+    </div>
+    <div>
+      <label for="mealType">When:</label>
+      <select id="mealType" name="mealType">
+        <option value="BREAKFAST">Breakfast</option>
+        <option value="LUNCH">Lunch</option>
+        <option value="DINNER">Dinner</option>
+      </select>
+    </div>
+    <div>
+      <button type="submit" class="btn btn-primary">Add Meal to Diet</button>
     </div>
   </form>
 </div>

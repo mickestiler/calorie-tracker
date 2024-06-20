@@ -24,7 +24,7 @@ public class Macronutrient {
     }
 
     public void setFat(int fat) {
-        this.fat = Math.max(protein, 0);
+        this.fat = Math.max(fat, 0);
     }
 
     public int getCarbohydrates() {

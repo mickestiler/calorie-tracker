@@ -15,8 +15,24 @@
   <p>Daily Fat Goal: <span th:text="${profile.dailyFatGoal}"></span></p>
   <p>Daily Carbohydrate Goal: <span th:text="${profile.dailyCarbohydrateGoal}"></span></p>
   <!-- Button to navigate to Add Meal page -->
-  <a href="@{/meals/add}" class="btn btn-primary">Add Meal</a>
+  <a th:href="@{/meals/create}" class="btn btn-primary">Create Meal</a>
   <!-- More profile fields can be added here -->
+  <h2>Add Meal from FatSecret</h2>
+  <form th:action="@{/searchMeals}" method="get">
+    <div class="form-group">
+      <input type="text" name="query" class="form-control" placeholder="Enter food item">
+    </div>
+    <button type="submit" class="btn btn-success">Search</button>
+  </form>
+  <!-- Display meal search results -->
+  <div th:if="${meals}">
+    <h3>Search Results</h3>
+    <ul>
+      <li th:each="meal : ${meals}">
+        <span th:text="${meal.food_name}">Food Name</span>: <span th:text="${meal.calories}">Calories</span>
+      </li>
+    </ul>
+  </div>
 </div>
 <!-- Include JavaScript files for Bootstrap -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

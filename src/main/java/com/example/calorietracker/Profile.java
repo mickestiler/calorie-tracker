@@ -19,6 +19,12 @@ public class Profile {
     private int dailyFatGoal;
     private int dailyCarbohydrateGoal;
 
+    private int breakfastCalories;
+
+    private int lunchCalories;
+
+    private int dinnerCalories;
+
     @OneToMany(mappedBy = "profile", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Meal> meals;  // List to hold multiple meals
 
